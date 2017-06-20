@@ -10,6 +10,9 @@ from warehouse_service.conf.config_logger_setup import setup_config_logger
 from warehouse_service.session.interfaces import DBInterface
 from flask.ext.cors import CORS
 from warehouse_service.service_apis.ping import Ping
+from warehouse_service.service_apis.products import AllProducts
+from warehouse_service.service_apis.orders import Orders
+from warehouse_service.service_apis.invoice import Invoice
 
 close_old_connections()
 init_pool()
@@ -26,7 +29,10 @@ api = restful.Api(app)
 setup_config_logger(app)
 
 app.logger.info("Setting up Resources")
-api.add_resource(Ping,'/warehouseservice/ping/')
+api.add_resource(Ping, '/warehouseservice/ping/')
+api.add_resource(AllProducts, '/warehouseservice/products/')
+api.add_resource(Orders, '/warehouseservice/orders/')
+api.add_resource(Invoice, '/warehouseservice/invoice/')
 
 app.logger.info("Resource setup done")
 
