@@ -9,9 +9,9 @@ from uni_db.inventory.models import Delivery
 from django.core.exceptions import ObjectDoesNotExist
 
 
-def handle_request():
+def handle_request(data):
     response = []
-    for order in Order.objects.filter(status="FULFILLABLE"):
+    for order in Order.objects.filter(status=str(data.get('status'))):
         orderDict = {}
         orderDict['order_id'] = str(order.sales_order_id)
         orderDict['client'] = str(order.owner.client_name.title())

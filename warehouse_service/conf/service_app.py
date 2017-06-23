@@ -13,6 +13,7 @@ from warehouse_service.service_apis.ping import Ping
 from warehouse_service.service_apis.products import AllProducts
 from warehouse_service.service_apis.orders import Orders
 from warehouse_service.service_apis.invoice import Invoice
+from warehouse_service.service_apis.product_barcode import ProductBarcode
 
 close_old_connections()
 init_pool()
@@ -33,6 +34,7 @@ api.add_resource(Ping, '/warehouseservice/ping/')
 api.add_resource(AllProducts, '/warehouseservice/products/')
 api.add_resource(Orders, '/warehouseservice/orders/')
 api.add_resource(Invoice, '/warehouseservice/invoice/')
+api.add_resource(ProductBarcode, '/warehouseservice/barcode/')
 
 app.logger.info("Resource setup done")
 
